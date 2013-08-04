@@ -318,9 +318,6 @@ Exhibit.ForceDirectedView.prototype._reconstruct = function (){
                     }
                 }
             });
-            if (shape == "triangle"){
-                console.log(itemID, color, shape, size);
-            }
             
             jitItem["adjacencies"] = edgeList;            
             jitItem["data"] = {"$color": color, "$type": shape,"$dim": 10};

@@ -1,0 +1,9 @@
+Software Libraries
+==================
+
+jit.js
+------
+ * http://philogb.github.io/jit/
+ * 2.0.1
+ * MIT
+ * /src/lib/jit.js

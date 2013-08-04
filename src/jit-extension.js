@@ -9,13 +9,17 @@
                     
     Exhibit.JitExtension = {
         params: {
-            bundle: false
+            bundle: true
         } 
     };
 
     var javascriptFiles = [
         "force.js"
     ];
+
+    var javascriptLibs = [
+                    "jit.js"
+                    ];
 
     var cssFiles = [
         "forceDirected.css"
@@ -45,8 +49,9 @@
     
     if (Exhibit.JitExtension.params.bundle) {
         scriptURLs.push(Exhibit.JitExtension.urlPrefix + "jit-extension-bundle.js");
-        cssURLs.push(Exhibit.JitExtension.urlPrefix + "jit-extension-bundle.css");
+        cssURLs.push(Exhibit.JitExtension.urlPrefix + "styles/jit-extension-bundle.css");
     } else {
+        Exhibit.prefixURLs(scriptURLs, Exhibit.JitExtension.urlPrefix + "lib/", javascriptLibs);
         Exhibit.prefixURLs(scriptURLs, Exhibit.JitExtension.urlPrefix + "scripts/", javascriptFiles);
         Exhibit.prefixURLs(cssURLs, Exhibit.JitExtension.urlPrefix + "styles/", cssFiles);
     }
@@ -56,7 +61,7 @@
     };
     
     if (!isCompiled) {
-        Exhibit.includeJavascriptFiles(document, "", scriptURLs);
+        Exhibit.includeJavascriptFiles("", scriptURLs, false);
         Exhibit.includeCssFiles(document, "", cssURLs);
     }
 })();
