@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Force Directed Network Layout Documentation
+    </title>
+    <style>
+        body{
+            border: 1px solid grey;
+            padding: 10px 20px;
+        }
+        #intro{
+            width: 40em;
+            padding: 10px 10px;
+            height: auto;
+            border: 1px dotted grey;        
+        }
+        .border{
+            border: 1px dashed grey;
+        }
+    </style>
+</head>
+<body>
+    <h1> JIT Force Directed Layout</h1>
+    <div id="intro"> 
+        We are using the the <a href="http://philogb.github.io/jit/">JavaScript Infovis Toolkit
+        (JIT)</a>'s  force directed layout to produce a network
+        visualization.   
+        A network visualization shows a relationship between data points. Individual data points are referred as <b>nodes</b>. 
+        When two data points are related, the relation can be shown with a line between them. This line is called an <b>edge</b>.
+        You can use shape,size and color "coders" to give specific shape, size and color to different data groups.
+    </div>
+    <p>To add JIT force directed view to your exhibit, you must include JIT library and the exhibit extension for JIT(in addition
+    	to the Exhibit API):
+    </p>
+    <div class="border">
+     <pre> &lt;link rel="exhibit-extension" src=<a href="http://projects.csail.mit.edu/exhibit/extensions/jitExtensions/jit-extension.js">"http://projects.csail.mit.edu/exhibit/extensions/jitExtensions/jit-extension.js"</a>/&gt;
+    </pre>
+    </div>
+
+    <p>To include a force directed view, add to your HTML
+    </p>
+    <div class="border">
+    <pre> &lt;div ex:role="view" 
+       ex:viewClass="ForceDirected" 
+       ex:nodeName=".label"
+       ex:edge=".adjacencies"&gt;
+     &lt;/div&gt;
+    </pre>
+    </div>
+
+    
+    <p><b>nodeName</b> is the name you display on the node. Replace .label with appropriate expression<br/>
+    <b>edge</b> is the link between two nodes. Replace .adjacencies with appropriate expression.</p>
+    <p>Other settings (to be preceded by ex:) include: </p>
+    
+    <table border="1">
+        <tr>
+            <th>setting name</th>
+            <th>type of value</th>
+            <th>default</th>
+            <th>choices</th>
+            <th>meaning</th>
+        </tr>
+        <tr>
+            <td>plotHeight</td>
+            <td>int</td>
+            <td>400</td>
+            <td></td>
+            <td>Height of the plot in pixels</td>
+        </tr>
+        <tr>
+            <td>plotWidth</td>
+            <td>int</td>
+            <td>600</td>
+            <td></td>
+            <td>Width of the plot in pixels</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>text</td>
+            <td>#D95F0E</td>
+            <td>Any color in accepted html format</td>
+            <td>All the nodes in the graph will be of this color in the absence of color coders</td>
+        </tr>
+        <tr>
+            <td>colorCoder</td>
+            <td>text</td>
+            <td>null</td>
+            <td></td>
+            <td>id of a colorCoder</td>
+        </tr>
+        <tr>
+            <td>shape</td>
+            <td>enum</td>
+            <td>triangle</td>
+            <td>triangle, square, circle and star</td>
+            <td>All the nodes in the graph will be of this shape in the absence of a shapeCoder</td>
+        </tr>
+        <tr>
+            <td>shapeCoder</td>
+            <td>text</td>
+            <td>null</td>
+            <td></td>
+            <td>id of a shapeCoder</td>
+        </tr>
+        <tr>
+            <td>size</td>
+            <td>text</td>
+            <td>6</td>
+            <td>1-12</td>
+            <td>All the nodes will be of this size if there is no sizeCoder</td>
+        </tr>
+        <tr>
+            <td>sizeCoder</td>
+            <td>text</td>
+            <td>null</td>
+            <td></td>
+            <td>id of a sizeCoder</td>
+        </tr>
+        <tr>
+            <td>edgeColor</td>
+            <td>text</td>
+            <td>#23A4FF</td>
+            <td>Any color</td>
+            <td>Color for the line which links the nodes</td>
+        </tr>
+        <tr>
+            <td>bubbleHeight</td>
+            <td>int</td>
+            <td>300</td>
+            <td></td>
+            <td>Height of the popUp in pixels</td>
+        </tr>
+        <tr>
+            <td>bubbleWidth</td>
+            <td>int</td>
+            <td>400</td>
+            <td></td>
+            <td>Width of the popUp in pixels</td>
+        </tr>
+    </table>
+</body>
+</html>
